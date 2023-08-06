@@ -28,6 +28,10 @@ body {
     color: var(--color-primary);
 }
 
+.border-primary {
+    border-color: var(--color-primary);
+}
+
 .main-input {
     background-color: #f3f3f3;
 }

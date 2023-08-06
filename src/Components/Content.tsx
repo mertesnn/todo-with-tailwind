@@ -56,12 +56,16 @@ const Content = () => {
                                     {item.text}
                                 </span>
                             </label>
-                            <img
-                                src={deleteIcon}
-                                className="cursor-pointer"
-                                alt="Delete"
+                            <button
+                                className="border rounded-md px-3 h-8 border-primary"
                                 onClick={() => deleteTodo(item.id)}
-                            />
+                            >
+                                <img
+                                    src={deleteIcon}
+                                    className="cursor-pointer"
+                                    alt="Delete"
+                                />
+                            </button>
                         </div>
                     ))}
             </div>

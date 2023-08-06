@@ -11,10 +11,17 @@ const Content = () => {
         const uniqueId = new Date().getTime()
         const newTodo: todos = {
             id: uniqueId,
+            completed: false,
             text: mainInput,
         }
         setTodos([...todos, newTodo])
         setMainInput('')
+    }
+
+    const changeStatus = (id: Number) => {
+        const todoIndex = todos.map((item) => item.id).indexOf(id)
+        todos[todoIndex].completed = !todos[todoIndex].completed
+        setTodos([...todos])
     }
 
     const deleteTodo = (id: Number) => {
@@ -43,13 +50,16 @@ const Content = () => {
                 {todos &&
                     todos.map((item, index) => (
                         <div
-                            className="mt-10 flex items-center justify-between"
+                            className={`mt-10 flex items-center justify-between ${
+                                item.completed ? 'completed' : ''
+                            }`}
                             key={index}
                         >
                             <label className="flex items-center">
                                 <input
                                     type="checkbox"
                                     className="custom-checkbox"
+                                    onClick={() => changeStatus(item.id)}
                                 />
                                 <span className="checkmark"></span>
                                 <span className="ml-10 text-lg select-none">

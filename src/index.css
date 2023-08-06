@@ -1,13 +1,70 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-primary: #ea5959;
+        --color-secondary: #525252;
+    }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    font-family: 'Lato';
+    height: 100vh;
+}
+
+#root {
+    height: 100%;
+}
+
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.color-primary {
+    color: var(--color-primary);
+}
+
+.main-input {
+    background-color: #f3f3f3;
+}
+
+.main-input:focus-visible {
+    outline-width: 2px;
+    outline-style: solid;
+    outline-color: var(--color-primary);
+}
+
+.custom-checkbox {
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    height: 25px;
+    width: 25px;
+    border-radius: 8px;
+    border: 1px solid var(--color-primary);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.checkmark:after {
+    content: '';
+    display: none;
+}
+
+.custom-checkbox:checked ~ .checkmark:after {
+    display: block;
+    width: 7px;
+    height: 15px;
+    border: solid var(--color-primary);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-left: 8px;
+    margin-top: 2px;
 }

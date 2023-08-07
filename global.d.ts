@@ -1,5 +1,8 @@
 type todos = {
     id: Number
-    completed: Boolean
     text: String | undefined
+    completed: boolean | undefined
+    show: boolean | undefined
 }
+
+type heading = 'All' | 'Waiting' | 'Completed'
